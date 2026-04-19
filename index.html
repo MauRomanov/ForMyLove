@@ -797,8 +797,10 @@
             const side = i % 2 !== 0 ? 'left' : 'right';
             let customAnimation = '';
             let customContent = '<div class="photo-space">nossa foto aqui</div>';
+            let customText = '';
 
             if (i === 1) {
+                customText = '<p>O dia em que você me deu aquele livro cheio das nossas memórias. Cada página virada era uma lembrança do quanto nosso amor já construiu.</p>';
                 customAnimation = `
                     <div class="memory-book-container">
                         <div class="book">
@@ -817,6 +819,7 @@
                 `;
             }
             else if (i === 2) {
+                customText = '<p>Nosso jantar especial de Valentine\'s. Aquele colar de pérolas que te dei foi só um detalhe perto do brilho que a nossa noite teve.</p>';
                 customAnimation = `
                     <div class="valentine-dinner-container">
                         <div class="dinner-candle">
@@ -832,6 +835,7 @@
                 `;
             }
             else if (i === 3) {
+                customText = '<p>Assim como essas peças de quebra-cabeça, nós nos encontramos e nos encaixamos perfeitamente. Uma conexão que parece ter sido desenhada pelo destino.</p>';
                 customAnimation = `
                     <div class="jigsaw-container">
                         <svg width="100" height="80" viewBox="0 0 100 80" style="overflow:visible;">
@@ -851,6 +855,7 @@
                 `;
             }
             else if (i === 4) {
+                customText = '<p>No meio da correria da cidade e da selva de pedra, nosso amor floresce. É nas pequenas atitudes diárias que nossa natureza se renova.</p>';
                 customAnimation = `
                     <div class="city-nature-container">
                         <div class="building bldg-1">
@@ -879,6 +884,7 @@
                     </div>
                 `;
             } else if (i === 5) {
+                customText = '<p>Aquele acampamento inesquecível. O calor da fogueira, os marshmallows assados e um céu cheio de vagalumes só pra nós dois.</p>';
                 customAnimation = `
                     <div class="fireplace-container">
                         <div class="firefly ff-1" style="bottom: 30px; left: 20%;"></div>
@@ -894,6 +900,7 @@
                     </div>
                 `;
             } else if (i === 6) {
+                customText = '<p>Aquele dia do pastel de feira! Simples, crocante, quentinho e cheio de risadas. As melhores memórias às vezes vêm nas coisas mais simples.</p>';
                 customAnimation = `
                     <div class="pastelaria-container">
                         <div class="pastel-steam steam-1"></div>
@@ -907,6 +914,7 @@
                 `;
             }
             else if (i === 7) {
+                customText = '<p>Mamma Mia! Nossa noite da pizza. Queijinho derretido, manjericão fresquinho e conversas que duraram até a última fatia.</p>';
                 customAnimation = `
                     <div class="italian-pizza-container">
                         <div class="basil-leaf basil-1"></div>
@@ -928,8 +936,10 @@
                 `;
             }
             else if (i === 8) {
+                customText = '<p>Nossa aventura no Mundo Invertido! Sobrevivemos aos sustos juntinhos na cabana, um momento pra lá de divertido.</p>';
                 customAnimation = `<div class="tent-container"><div class="spore" style="top:20%; left:20%;"></div><div class="spore" style="top:50%; left:80%; animation-delay: 1s;"></div><svg class="tent-svg" viewBox="0 0 100 80"><path d="M50 10 L90 70 L10 70 Z" fill="#2d3436" stroke="#ed1c24" stroke-width="2"/><path d="M50 10 L65 70 L35 70 Z" fill="#1a1a1a"/><path class="tent-interior-light" d="M50 25 L60 70 L40 70 Z"/><path d="M50 10 L10 70" stroke="#1a1a1a" stroke-width="1"/><path d="M50 10 L90 70" stroke="#1a1a1a" stroke-width="1"/></svg></div>`;
             } else if (i === 9) {
+                customText = '<p>Pé na areia, barulho do mar e o sol iluminando nosso dia. A praia sempre será um dos nossos refúgios favoritos.</p>';
                 customAnimation = `
                 <div class="beach-diorama">
                     <div class="beach-sun"></div>
@@ -953,6 +963,7 @@
                 </div>
             `;
         } else if (i === 10) {
+            customText = '<p>Nossa viagem de realidade virtual e aventuras! Rimos muito e descobrimos mundos cheios de dinossauros, sempre de mãos dadas.</p>';
             customAnimation = `
                 <div class="vr-dino-container">
                     <div class="vr-device">
@@ -966,6 +977,7 @@
                 </div>
             `;
         } else if (i === 11) {
+                customText = '<p>O período da sua cirurgia nos olhos. Cuidar de você foi minha prioridade, e cada gotinha de colírio ia acompanhada de muito amor e chá quentinho.</p>';
                 customAnimation = `
                     <div class="eye-surgery-container">
                         <div class="eye-drop"></div>
@@ -981,6 +993,17 @@
                     </div>
                 `;
             } else if (i === 12) {
+                customText = `
+                    <p>Nosso segundo date do ano. Extremamente especial pois era algo que queria bastante, momentos marcantes:
+                        <ul style="display: inline-block; list-style-position: inside; text-align: left; margin-top: 5px;">
+                            <li>• Advinharmos se o casal ia virar casal kkkk 👀</li>
+                            <li>• O Bar péssimo 🤮</li>
+                            <li>• O Museu, claro, vi muitos artistas que apenas sonhava em ver 🎨</li>
+                            <li>• A chuva que nós pegamos no meio do povo dos bloquinhos 😭</li>
+                            <li>• Pipoca de graça! 🍿</li>
+                        </ul>
+                    </p>
+                `;
                 customAnimation = `
                     <div class="masp-diorama">
                         <div class="masp-cloud" style="top: 20px; left: 10px; width: 45px; animation-delay: 0s;"></div>
@@ -1010,16 +1033,7 @@
                             <h3 id="title-${i}">Momento ${i}</h3>
                             <div class="description">
                                 ${customAnimation}
-                                <p>Nosso segundo date do ano. Extremamente especial pois era algo que queria bastante,
-                                momentos marcantes:
-                                    <ul style="display: inline-block; list-style-position: inside;">
-                                            <li>-Advinharmos se o casal ia virar casal kkkk 👀</li>
-                                            <li>O Bar péssimo 🤮</li>
-                                            <li>O Museu, claro, vi muitos artistas que apenas sonhava em ver 🎨</li>
-                                            <li>A chuva que nós pegamos no meio do povo dos bloquinhos 😭</li>
-                                            <li>pipoca de graça 🍿</li>
-                                    </ul>
-                                -</p>
+                                ${customText}
                                 ${customContent}
                             </div>
                         </div>
@@ -1046,7 +1060,7 @@
                                 <div class="party-popper">🎉</div>
                             </div>
                             <div class="photo-space" style="height: auto; min-height: 220px; padding: 30px; text-align: center; line-height: 1.6; font-size: 1.15rem; color: #db2777; font-weight: 600; text-transform: none; background: rgba(255, 255, 255, 0.6); border-color: #f472b6;">
-                                abra sua câmera e vamos construir nossas memórias futuras, a partir de agora ✨
+                                vamos construir nossas memórias futuras, a partir de agora ✨
                             </div>
                         </div>
                     </div>
@@ -1066,15 +1080,16 @@
             if (num === '1') title.innerText = isActive ? 'O Começo de Tudo' : 'Momento 1';
             else if (num === '2') title.innerText = isActive ? 'Jantar Perolado' : 'Momento 2';
             else if (num === '3') title.innerText = isActive ? 'O Encaixe Divino' : 'Momento 3';
-            else if (num === '4') title.innerText = isActive ? 'Pequenas Grande Ações' : 'Momento 4';
+            else if (num === '4') title.innerText = isActive ? 'Pequenas Grandes Ações' : 'Momento 4';
             else if (num === '5') title.innerText = isActive ? 'Camping' : 'Momento 5';
-            else if (num === '6') title.innerText = isActive ? 'Recreaçãp do Passado' : 'Momento 6';
+            else if (num === '6') title.innerText = isActive ? 'Recriação do Passado' : 'Momento 6';
             else if (num === '7') title.innerText = isActive ? 'Pizzaria de Amores' : 'Momento 7';
-            if (num === '8') title.innerText = isActive ? 'O Mundo Invertido' : 'Momento 8';
+            else if (num === '8') title.innerText = isActive ? 'O Mundo Invertido' : 'Momento 8';
+            else if (num === '9') title.innerText = isActive ? 'Praia à Vista' : 'Momento 9';
             else if (num === '10') title.innerText = isActive ? 'Mundo VR e Experimentos' : 'Momento 10';
-        else if (num === '11') title.innerText = isActive ? 'Cuidando da Minha Princesa' : 'Momento 11';
-        else if (num === '12') title.innerText = isActive ? 'MASP e Chuvaral' : 'Momento 12';
-        else if (num === 'fim') title.innerText = isActive ? 'Para o Futuro!' : 'Fim';
+            else if (num === '11') title.innerText = isActive ? 'Cuidando da Minha Princesa' : 'Momento 11';
+            else if (num === '12') title.innerText = isActive ? 'MASP e Chuvarada' : 'Momento 12';
+            else if (num === 'fim') title.innerText = isActive ? 'Para o Futuro!' : 'Fim';
 
             dot.classList.remove('dot-animating');
             void dot.offsetWidth;
