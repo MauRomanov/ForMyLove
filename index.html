@@ -1010,7 +1010,16 @@
                             <h3 id="title-${i}">Momento ${i}</h3>
                             <div class="description">
                                 ${customAnimation}
-                                <p>Este é um capítulo precioso da nossa história. A nossa continuidade se constrói em cada detalhe guardado com amor.</p>
+                                <p>Nosso segundo date do ano. Extremamente especial pois era algo que queria bastante,
+                                momentos marcantes:
+                                    <ul style="display: inline-block; list-style-position: inside;">
+                                            <li>-Advinharmos se o casal ia virar casal kkkk 👀</li>
+                                            <li>O Bar péssimo 🤮</li>
+                                            <li>O Museu, claro, vi muitos artistas que apenas sonhava em ver 🎨</li>
+                                            <li>A chuva que nós pegamos no meio do povo dos bloquinhos 😭</li>
+                                            <li>pipoca de graça 🍿</li>
+                                    </ul>
+                                -</p>
                                 ${customContent}
                             </div>
                         </div>
@@ -1037,7 +1046,7 @@
                                 <div class="party-popper">🎉</div>
                             </div>
                             <div class="photo-space" style="height: auto; min-height: 220px; padding: 30px; text-align: center; line-height: 1.6; font-size: 1.15rem; color: #db2777; font-weight: 600; text-transform: none; background: rgba(255, 255, 255, 0.6); border-color: #f472b6;">
-                                vamos construir nossas memórias futuras, a partir de agora ✨
+                                abra sua câmera e vamos construir nossas memórias futuras, a partir de agora ✨
                             </div>
                         </div>
                     </div>
@@ -1054,17 +1063,17 @@
             const num = id.split('-')[1];
             const title = document.getElementById(`title-${num}`);
             
-            if (num === '1') title.innerText = isActive ? 'Livro de Memórias' : 'Momento 1';
-            else if (num === '2') title.innerText = isActive ? 'Pérola no Valentine\'s' : 'Momento 2';
-            else if (num === '3') title.innerText = isActive ? 'O Encaixe Perfeito' : 'Momento 3';
-            else if (num === '4') title.innerText = isActive ? 'Cidade & Natureza' : 'Momento 4';
-            else if (num === '5') title.innerText = isActive ? 'Noite de Acampamento' : 'Momento 5';
-            else if (num === '6') title.innerText = isActive ? 'Pastel de Feira' : 'Momento 6';
-            else if (num === '7') title.innerText = isActive ? 'Mamma Mia!' : 'Momento 7';
-            if (num === '8') title.innerText = isActive ? 'Upside Down' : 'Momento 8';
-            else if (num === '10') title.innerText = isActive ? 'Aventura VR' : 'Momento 10';
-        else if (num === '11') title.innerText = isActive ? 'Cuidando de Nós' : 'Momento 11';
-        else if (num === '12') title.innerText = isActive ? 'Arte na Paulista' : 'Momento 12';
+            if (num === '1') title.innerText = isActive ? 'O Começo de Tudo' : 'Momento 1';
+            else if (num === '2') title.innerText = isActive ? 'Jantar Perolado' : 'Momento 2';
+            else if (num === '3') title.innerText = isActive ? 'O Encaixe Divino' : 'Momento 3';
+            else if (num === '4') title.innerText = isActive ? 'Pequenas Grande Ações' : 'Momento 4';
+            else if (num === '5') title.innerText = isActive ? 'Camping' : 'Momento 5';
+            else if (num === '6') title.innerText = isActive ? 'Recreaçãp do Passado' : 'Momento 6';
+            else if (num === '7') title.innerText = isActive ? 'Pizzaria de Amores' : 'Momento 7';
+            if (num === '8') title.innerText = isActive ? 'O Mundo Invertido' : 'Momento 8';
+            else if (num === '10') title.innerText = isActive ? 'Mundo VR e Experimentos' : 'Momento 10';
+        else if (num === '11') title.innerText = isActive ? 'Cuidando da Minha Princesa' : 'Momento 11';
+        else if (num === '12') title.innerText = isActive ? 'MASP e Chuvaral' : 'Momento 12';
         else if (num === 'fim') title.innerText = isActive ? 'Para o Futuro!' : 'Fim';
 
             dot.classList.remove('dot-animating');
