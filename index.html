@@ -292,6 +292,22 @@
         .item-active .card h3 { color: #0891b2; margin-bottom: 0.8rem; }
         .item-active .description { max-height: 2000px; opacity: 1; }
 
+        /* --- FOTOS CSS --- */
+        .custom-photo { 
+            width: 100%; 
+            height: 220px; 
+            object-fit: cover; 
+            border-radius: 12px; 
+            margin-top: 1rem; 
+            border: 2px solid rgba(255, 255, 255, 0.6); 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+            position: relative; 
+            z-index: 10; 
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .photo-space { width: 100%; height: 220px; background: rgba(255, 255, 255, 0.2); border: 1px dashed rgba(0, 0, 0, 0.1); border-radius: 12px; margin-top: 1rem; display: flex; align-items: center; justify-content: center; color: #b2bec3; font-size: 0.75rem; text-transform: lowercase; letter-spacing: 0.1em; position: relative; z-index: 10; text-align: center; padding: 0 20px;}
+
         /* --- DETAILED ANIMATIONS CSS --- */
         
         /* M1: Book of Memories */
@@ -740,8 +756,6 @@
 
         .timeline-content.center-box { width: 100%; padding: 0; margin-top: 70px; display: flex; justify-content: center; text-align: center; }
 
-        .photo-space { width: 100%; height: 220px; background: rgba(255, 255, 255, 0.2); border: 1px dashed rgba(0, 0, 0, 0.1); border-radius: 12px; margin-top: 1rem; display: flex; align-items: center; justify-content: center; color: #b2bec3; font-size: 0.75rem; text-transform: lowercase; letter-spacing: 0.1em; position: relative; z-index: 10; }
-
         @media (max-width: 640px) {
             .timeline-content { width: 48%; padding: 0 8px; margin-left: 0 !important; margin-right: 0 !important; }
             .left { margin-right: 52% !important; text-align: right !important; }
@@ -792,11 +806,23 @@
             setTimeout(() => { document.body.classList.remove('intro-active'); }, 2200);
         }
 
+        // Função segura para gerir o erro de imagem
+        function handleImgError(img, msg, isFim) {
+            img.onerror = null;
+            if (isFim) {
+                img.outerHTML = '<div style="padding: 30px; text-align: center; line-height: 1.6; font-size: 1.15rem; color: #db2777; font-weight: 600; text-transform: none; background: rgba(255, 255, 255, 0.6); border: 2px dashed #f472b6; border-radius: 12px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; margin-top: 0; box-sizing: border-box;">abra sua câmera e vamos construir nossas memórias futuras, a partir de agora ✨</div>';
+            } else {
+                img.outerHTML = '<div class="photo-space">' + msg + '</div>';
+            }
+        }
+
         const timelineContainer = document.getElementById('timeline');
         for (let i = 1; i <= 12; i++) {
             const side = i % 2 !== 0 ? 'left' : 'right';
             let customAnimation = '';
-            let customContent = '<div class="photo-space">nossa foto aqui</div>';
+            
+            // Usamos a nossa função segura para evitar conflitos de aspas
+            let customContent = `<img src="foto${i}.jpg" alt="Foto do Momento ${i}" class="custom-photo" onerror="handleImgError(this, 'Coloque a foto${i}.jpg na mesma pasta', false)">`;
             let customText = '';
 
             if (i === 1) {
@@ -939,7 +965,7 @@
                 customText = '<p>Nossa aventura no Mundo Invertido! Sobrevivemos aos sustos juntinhos na cabana, um momento pra lá de divertido.</p>';
                 customAnimation = `<div class="tent-container"><div class="spore" style="top:20%; left:20%;"></div><div class="spore" style="top:50%; left:80%; animation-delay: 1s;"></div><svg class="tent-svg" viewBox="0 0 100 80"><path d="M50 10 L90 70 L10 70 Z" fill="#2d3436" stroke="#ed1c24" stroke-width="2"/><path d="M50 10 L65 70 L35 70 Z" fill="#1a1a1a"/><path class="tent-interior-light" d="M50 25 L60 70 L40 70 Z"/><path d="M50 10 L10 70" stroke="#1a1a1a" stroke-width="1"/><path d="M50 10 L90 70" stroke="#1a1a1a" stroke-width="1"/></svg></div>`;
             } else if (i === 9) {
-                customText = 'Nosso date em família na praia, foi muito bom estar ao seu lado nesse dia onde curtimos e aproveitamos demais, assim como é demais eu te amar!</p>';
+                customText = '<p>Nosso date em família na praia, foi muito bom estar ao seu lado nesse dia onde curtimos e aproveitamos demais, assim como é demais eu te amar!</p>';
                 customAnimation = `
                 <div class="beach-diorama">
                     <div class="beach-sun"></div>
@@ -1059,8 +1085,8 @@
                                 <div class="confetti confetti-5"></div>
                                 <div class="party-popper">🎉</div>
                             </div>
-                            <div class="photo-space" style="height: auto; min-height: 220px; padding: 30px; text-align: center; line-height: 1.6; font-size: 1.15rem; color: #db2777; font-weight: 600; text-transform: none; background: rgba(255, 255, 255, 0.6); border-color: #f472b6;">
-                                vamos construir nossas memórias futuras, a partir de agora ✨
+                            <div class="photo-space" style="padding: 0;">
+                                <img src="foto-fim.jpg" alt="A nossa última foto por agora" class="custom-photo" style="margin-top: 0; width: 100%; height: 100%;" onerror="handleImgError(this, '', true)">
                             </div>
                         </div>
                     </div>
